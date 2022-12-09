@@ -8,10 +8,14 @@ from kivy.uix.button import Button
 class ContainerGrid(GridLayout):
     def __init__(self, **kwargs):
         super(ContainerGrid, self).__init__(**kwargs)
-
-        # Set columns
         self.cols = 1
 
+        self.top_container()
+        self.bottom_container()
+
+
+    # Top contaienr
+    def top_container(self):        
         # Create second grid
         self.top_grid = GridLayout()
         self.top_grid.cols = 2
@@ -30,13 +34,17 @@ class ContainerGrid(GridLayout):
         self.top_grid.add_widget(self.color) # Text input
 
         # Add new top grid
-        self.add_widget(self.top_grid)    
+        self.add_widget(self.top_grid)  
 
 
+    # Bottom container
+    def bottom_container(self):
         self.submit = Button(text = "Submit", font_size = 26) # Submit Button
         self.submit.bind(on_press = self.press) # Bind button
         self.add_widget(self.submit)
 
+
+    # Press button action
     def press(self, instance):
         name = self.name.text
         color = self.color.text
@@ -50,6 +58,8 @@ class ContainerGrid(GridLayout):
         self.pizza.text = ""
         self.color.text = ""
 
+
+# Compiler
 class MyApp(App):
     def build(self):
         return ContainerGrid()
