@@ -1,0 +1,43 @@
+#:kivy 2.2.0
+
+WindowManager:
+    FirstWindow:
+    SecondWindow:
+
+
+<FirstWindow>:
+    name: "first_window"
+
+    BoxLayout:
+        orientation:"vertical"
+        size: root.width, root.height
+
+        Label:
+            text: "First screen"
+            font_size: 32
+
+        Button:
+            text:"Next Screen"
+            font_size: 32
+            on_release: 
+                app.root.current = "second_window"
+                root.manager.transition.direction = "up"
+
+<SecondWindow>:
+    name: "second_window"
+    
+    BoxLayout:
+        orientation:"vertical"
+        size: root.width, root.height
+
+        Label:
+            text: "Second screen"
+            font_size: 32
+
+        Button:
+            text:"Go Back"
+            font_size: 32
+            on_release: 
+                app.root.current = "first_window"
+                root.manager.transition.direction = "down"
+
