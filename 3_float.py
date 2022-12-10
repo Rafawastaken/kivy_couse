@@ -4,15 +4,15 @@ from kivy.uix.widget import Widget
 from kivy.lang import Builder
 
 # Import KV File
-Builder.load_file('2_bg.kv')
+Builder.load_file('3_float.kv')
 
 class MyLayout(Widget):
     pass
 
-class BoxLayoutApp(App):
+class FloatLayoutApp(App):
     def build(self):
         return MyLayout()
 
 
 if __name__ == '__main__':
-    BoxLayoutApp().run()
+    FloatLayoutApp().run()
